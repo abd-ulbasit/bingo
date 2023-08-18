@@ -7,7 +7,7 @@ interface state {
 
 interface actions {
     setBoard: (board: Board) => void;
-    markCell: (row: number, col: number, value: boolean) => void;
+    markCell: (row: number, col: number) => void;
     addCell: (row: number, col: number, value: number) => void;
 }
 export const usePlayerBoardStore = create<state & actions>((set, get) => ({
