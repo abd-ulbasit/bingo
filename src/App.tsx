@@ -1,9 +1,12 @@
+import ComputerBoard from "./components/ComputerBoard"
 import DesignPlayerBoard from "./components/PlayerBoard"
 
 function App() {
   return (
-
-    <DesignPlayerBoard></DesignPlayerBoard>
+    <>
+      <ComputerBoard></ComputerBoard>
+      <DesignPlayerBoard></DesignPlayerBoard>
+    </>
   )
 }
 

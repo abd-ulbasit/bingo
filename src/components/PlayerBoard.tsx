@@ -19,11 +19,12 @@ const DesignPlayerBoard = () => {
                 {board.map((row, i) => (
                     <div key={i} className="flex gap-4" >
                         {row.map((col, j) => (
-                            <button key={j} className="square" onClick={() => handleAddCell(i, j)}>{board[i][j]?.key ?? "X"}</button>
+                            <button key={j} className=" rounded-md border w-12 h-12 text-center bg-slate-300" onClick={() => handleAddCell(i, j)}>{board[i][j]?.key ?? "X"}</button>
                         ))}
                     </div>
                 ))}
             </div>
+            {count > 25 && <button className="btn" onClick={() => window.location.href = "/play"}>Play</button>}
         </div>
     );
 }
