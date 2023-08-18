@@ -6,6 +6,7 @@ const numbers = Array.from({ length: 25 }, (_, index) => index + 1);
 shuffleArray(numbers);
 interface actions {
     markCell: (value: number) => void;
+    setBoard: (board: BoardCell[][]) => void;
 }
 export const useComputerBoardStore = create<state & actions>((set, get) => ({
     board: Array.from({ length: 5 }, () =>
@@ -16,19 +17,11 @@ export const useComputerBoardStore = create<state & actions>((set, get) => ({
     markCell: (value: number) => {
         const board = get().board;
         const { row: r, col: c } = findIndices(board, value);
-        console.log({ r, c });
 
         board[r][c] = { key: value, marked: true };
-        // board.map((r) =>
-        //     r.map((cell) => {
-        //         if (cell.key == value) {
-        //             cell.marked = true;
-        //         }
-        //         return cell;
-        //     })
-        // );
         set({ board });
     },
+    setBoard: (board: BoardCell[][]) => set({ board }),
 }));
 
 function shuffleArray(array: number[]) {

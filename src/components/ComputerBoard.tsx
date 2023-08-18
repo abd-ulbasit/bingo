@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { useComputerBoardStore } from "../store/computerBoardStore";
 
 const ComputerBoard = () => {
-    const board = useComputerBoardStore(state => state.board)
+    const [board, setBoard] = useComputerBoardStore(({ board, setBoard }) => [board, setBoard])
+
     console.log({ board });
+    useEffect(() => {
+        setBoard(board)
+    }, [board])
 
     return (
         <div className="grid gap-4" >
