@@ -1,13 +1,9 @@
-import { useState } from 'react'
+import DesignPlayerBoard from "./components/PlayerBoard"
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
-    <>
-      <button className='p-4 border rounded-md' onClick={() => setCount((count) => count + 1)}>
-        count is {count}
-      </button>
-    </>
+
+    <DesignPlayerBoard></DesignPlayerBoard>
   )
 }
 
