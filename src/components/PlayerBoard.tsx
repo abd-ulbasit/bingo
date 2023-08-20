@@ -2,14 +2,18 @@ import { useComputerBoardStore } from "../store/computerBoardStore";
 import { usePlayerBoardStore } from "../store/playerBoardStore";
 
 const PlayerBoard = () => {
-    const [board, markCell] = usePlayerBoardStore((state) => [state.board, state.markCell])
+    const [board, markCell, playerScore] = usePlayerBoardStore((state) => [state.board, state.markCell, state.score])
     const markComputerCell = useComputerBoardStore((state) => state.markCell)
     const handleMarkCell = (i: number, j: number, value: number | undefined) => {
         if (!value) return
-        console.log(i, j, value);
+        // console.log(i, j, value);
         markCell(i, j)
         markComputerCell(value)
+        console.log({ playerScore });
 
+        if (playerScore === 5) {
+            alert("You win")
+        }
     }
     return (
         <div className="grid gap-4" >

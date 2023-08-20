@@ -1,6 +1,7 @@
 import { create } from "zustand";
 interface state {
     board: BoardCell[][];
+    completed: number;
 }
 const numbers = Array.from({ length: 25 }, (_, index) => index + 1);
 shuffleArray(numbers);
@@ -14,6 +15,7 @@ export const useComputerBoardStore = create<state & actions>((set, get) => ({
             return { marked: false, key: numbers.pop() ?? 0 };
         })
     ),
+    completed: 0,
     markCell: (value: number) => {
         const board = get().board;
         const { row: r, col: c } = findIndices(board, value);
